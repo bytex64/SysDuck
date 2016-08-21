@@ -1,0 +1,26 @@
+diff -ur lua-5.3.2/src/Makefile lua-5.3.2-modified//src/Makefile
+--- lua-5.3.2/src/Makefile	2015-05-27 06:10:11 -0500
++++ lua-5.3.2-modified//src/Makefile	2016-01-31 15:03:45 -0600
+@@ -4,18 +4,18 @@
+ # == CHANGE THE SETTINGS BELOW TO SUIT YOUR ENVIRONMENT =======================
+ 
+ # Your platform. See PLATS for possible values.
+-PLAT= none
++PLAT= generic
+ 
+-CC= gcc -std=gnu99
++CC= avr32-gcc -std=gnu99
+ CFLAGS= -O2 -Wall -Wextra -DLUA_COMPAT_5_2 $(SYSCFLAGS) $(MYCFLAGS)
+ LDFLAGS= $(SYSLDFLAGS) $(MYLDFLAGS)
+ LIBS= -lm $(SYSLIBS) $(MYLIBS)
+ 
+-AR= ar rcu
+-RANLIB= ranlib
++AR= avr32-ar rcu
++RANLIB= avr32-ranlib
+ RM= rm -f
+ 
+-SYSCFLAGS=
++SYSCFLAGS= -DLUA_32BITS 
+ SYSLDFLAGS=
+ SYSLIBS=
